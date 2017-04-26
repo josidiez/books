@@ -17,7 +17,7 @@ import com.mytoys.books.service.BooksService
 import groovy.json.JsonSlurper
 import spock.lang.Specification
 
-class BookRestControllerTest extends Specification{
+class BooksRestControllerTest extends Specification{
 
     BooksService bookServiceMock = Mock(BooksService);
     BooksDTO booksDTO = null
@@ -32,7 +32,7 @@ class BookRestControllerTest extends Specification{
         booksDTO = new BooksDTO(books);
     }
     
-    def "When I introduce a term to search on API I get expected results"() {
+    def "When I introduce a term to search using the API I get expected results"() {
         setup: 'setting response'
             bookServiceMock.searchAndStore(_) >> booksDTO
         when: 'calling api'
@@ -42,7 +42,7 @@ class BookRestControllerTest extends Specification{
             response.status == OK.value()
             response.contentType.contains(APPLICATION_JSON.toString())
             response.characterEncoding=='UTF-8'
-            content.id=="dkej3jdkd";
+            content.get(0).id=="dkej3jdkd";
     }
 
  
@@ -51,8 +51,6 @@ class BookRestControllerTest extends Specification{
             def response = mockMvc.perform(get('/books')).andReturn().response
         then: 'response status is equal to 400, encoding is correct'
             response.status == BAD_REQUEST.value()
-            response.contentType.contains(APPLICATION_JSON.toString())
-            response.characterEncoding=='UTF-8'
     }
  
     def "When an unpredictable exception happen on the service the response code is 500"() {
@@ -62,7 +60,5 @@ class BookRestControllerTest extends Specification{
             def response = mockMvc.perform(get('/books?term=house')).andReturn().response
         then: 'response status is equal to 500, encoding is correct'
             response.status == INTERNAL_SERVER_ERROR.value()
-            response.contentType.contains(APPLICATION_JSON.toString())
-            response.characterEncoding=='UTF-8'
     }
 }

@@ -1,5 +1,6 @@
 package com.mytoys.books.service;
 
+import java.io.IOException;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +8,6 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.google.api.services.books.Books;
-import com.google.api.services.books.Books.Volumes.List;
 import com.google.api.services.books.model.Volumes;
 import com.mytoys.books.dto.BookDTO;
 import com.mytoys.books.dto.BooksDTO;
@@ -37,9 +37,7 @@ public class BooksService {
 
   	    final String titleQuery = queryBuilder(term);
 	    
-        List volumesList = booksApi.volumes().list(titleQuery);
-        volumesList.setMaxResults(MAX_RESULTS_DEMO);
-        Volumes volumes = volumesList.execute();
+  	    Volumes volumes = this.apiCall(titleQuery);
 
         if (emptyResult(volumes)) {
             throw new BooksNotFoundException("No matching books");
@@ -60,7 +58,13 @@ public class BooksService {
 	            
 	    bookRepository.save(entities) ;
 	}
-
+	
+	protected Volumes apiCall(String titleQuery) throws IOException{
+		return booksApi.volumes().list(titleQuery)
+					.setMaxResults(MAX_RESULTS_DEMO)
+					.execute();
+	}
+	
 	private String queryBuilder(String term){
 	    return String.format("title: %s", term);
 	}
