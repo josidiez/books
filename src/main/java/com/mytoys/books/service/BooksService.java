@@ -38,7 +38,7 @@ public class BooksService {
   	    final String titleQuery = queryBuilder(term);
 	    
   	    Volumes volumes = this.apiCall(titleQuery);
-
+  	    
         if (emptyResult(volumes)) {
             throw new BooksNotFoundException("No matching books");
         }
@@ -46,6 +46,7 @@ public class BooksService {
         java.util.List<BookDTO> bookList = volumes.getItems().stream()
                 .map(v -> new BookDTO(v.getId(),v.getVolumeInfo().getTitle(),v.getSelfLink()))
                 .collect(Collectors.toList());
+    
 		return new BooksDTO(bookList);
 	}
 	

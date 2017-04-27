@@ -1,25 +1,14 @@
 /*C21*/SET SCHEMA PUBLIC
 drop table books if exists
 create table books (id varchar(255) not null, link varchar(255), title varchar(255), primary key (id))
-INSERT INTO BOOKS VALUES('WYFFbVYEzvkC','https://www.googleapis.com/books/v1/volumes/WYFFbVYEzvkC','Casa-grande E Senzala')
+INSERT INTO BOOKS VALUES('jWSAbe34qI4C','https://www.googleapis.com/books/v1/volumes/jWSAbe34qI4C','House')
+INSERT INTO BOOKS VALUES('hk6mWENqN3oC','https://www.googleapis.com/books/v1/volumes/hk6mWENqN3oC','How to Buy a House in California')
+INSERT INTO BOOKS VALUES('lptdDwPrPAkC','https://www.googleapis.com/books/v1/volumes/lptdDwPrPAkC','The assertion is, that the title of the House of Hanover to the Succession of the British Monarchy ... is a title Hereditary, and of Divine Institution')
+INSERT INTO BOOKS VALUES('IuRCAQAAMAAJ','https://www.googleapis.com/books/v1/volumes/IuRCAQAAMAAJ','The Assertion Is, That the Title of the House of Hanover to the Succession of the British Monarchy (on Failure of Issue of Her Present Majesty) is a Title Hereditary and of Divine Institution')
+INSERT INTO BOOKS VALUES('4iglAQAAIAAJ','https://www.googleapis.com/books/v1/volumes/4iglAQAAIAAJ','Journal of Proceedings')
+INSERT INTO BOOKS VALUES('n82mPQAACAAJ','https://www.googleapis.com/books/v1/volumes/n82mPQAACAAJ','The House of Bernarda Alba')
+INSERT INTO BOOKS VALUES('eiS9sOjyL8MC','https://www.googleapis.com/books/v1/volumes/eiS9sOjyL8MC','Code of Federal Regulations, Title 13')
+INSERT INTO BOOKS VALUES('5OJFAQAAIAAJ','https://www.googleapis.com/books/v1/volumes/5OJFAQAAIAAJ','Titles of completed theses in home economics and related fields in colleges and universities of the United States')
+INSERT INTO BOOKS VALUES('PLolAQAAIAAJ','https://www.googleapis.com/books/v1/volumes/PLolAQAAIAAJ','Journal of the House of the General Assembly of the State of Iowa')
+INSERT INTO BOOKS VALUES('Vz1IAQAAMAAJ','https://www.googleapis.com/books/v1/volumes/Vz1IAQAAMAAJ','Journals of the House of Commons')
 COMMIT
-drop table books if exists
-DISCONNECT
-/*C20*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C19*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C18*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C17*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C16*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C15*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C14*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C13*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C12*/SET SCHEMA PUBLIC
-DISCONNECT
