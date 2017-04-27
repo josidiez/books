@@ -14,8 +14,14 @@ If you already have Gradle installed, you dont need you use the wrapper
 ### RUN
 
 ```sh
+$ ./gradlew bootRun
+```
+or with jar file
+```sh
 $ java -jar books.jar
 ```
+
+
 
 ### Testing
 Testing include test for the api: enconding, format, result. Also include some on the bussiness layer and repository mocking google api and returning FAKE results. It could be some other more but, hell year ! is enough for just an example.
