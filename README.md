@@ -9,6 +9,7 @@ $ git clone https://github.com/josidiez/books.git
 $ cd books
 $ ./gradlew clean build
 ```
+If you already have Gradle installed, you dont need you use the wrapper
 
 ### RUN
 
@@ -21,10 +22,15 @@ Testing include test for the api: enconding, format, result. Also include some o
 
 Spock testing is compatible with JUnit. So we can directly execute test on editor JUnit environment (Eclipse)
 
+### API Documentation
+Swagger have been added into the project, so API documentation and definition can be check at:
+```sh
+http://localhost:8085/swagger-ui.html
+```
 ### Format Result
-
+The result it's limited to 10 RESULTS.
 Using your REST Client just call http://localhost:8085/books?term=house 
-and ther result would be like . The result it's limited to 10 RESULTS. 
+and the result would be like above
 ```json
 [
   {
