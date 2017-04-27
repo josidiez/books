@@ -1,5 +1,9 @@
 package com.mytoys.books.api;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -12,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mytoys.books.api.resource.BookResource;
+import com.mytoys.books.dto.BookDTO;
 import com.mytoys.books.dto.BooksDTO;
 import com.mytoys.books.exception.BooksNotFoundException;
 import com.mytoys.books.service.BooksService;
@@ -41,7 +46,11 @@ public class BooksRestController {
 		
 		BooksDTO books = service.searchAndStore(term);
 		
-		return ResponseEntity.ok(books.get());
+		List<BookResource> resources = books.get().stream()
+                    .map(v -> new BookResource(v.getId(),v.getTitle(),v.getLink()))
+                    .collect(Collectors.toList());
+		
+		return ResponseEntity.ok(resources);
 	}
 
 

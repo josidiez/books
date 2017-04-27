@@ -11,8 +11,11 @@ public class BookResource {
     @ApiModelProperty(value = "Link to book store")
     private String link;
     
-    
-    
+    public BookResource(String id,String title,String link){
+        this.id = id;
+        this.title = title;
+        this.link = link;
+    }
     
     public String getId() {
         return id;
