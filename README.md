@@ -96,3 +96,20 @@ and the result would be like above
 ### api key and name
 
 This example include credentials obtained from a random repo on github. If any error is detected on credential it's only necesary to change api.properties with a new one.
+
+
+### Production environment
+And the last thing I almost forgot. For production environment we should add profiles to our properties adding environments. Example on spring:
+
+```
+---
+
+spring:
+  profiles: dev
+  
+
+---
+```
+For an apropiate production environmet this properties should be on diferent files on a git repository. The service should be stateless and shouldn't be necesary to re deploy because of a propertie change. Using a configuration server service this issue should be addressed.
+
+
